@@ -1,0 +1,99 @@
+[gd_scene load_steps=17 format=3 uid="uid://u5b6b10di2hv"]
+
+[ext_resource type="Script" uid="uid://d4nsmgbeulwes" path="res://character/character.gd" id="1_yf0e5"]
+[ext_resource type="Texture2D" uid="uid://b60txdjsw4ait" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_idle.png" id="2_b4qc5"]
+[ext_resource type="Texture2D" uid="uid://bhfovjnu07iia" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_run0.png" id="3_hd715"]
+[ext_resource type="Texture2D" uid="uid://brtnwuixgty1m" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_jump.png" id="3_hq3og"]
+[ext_resource type="Texture2D" uid="uid://cmlq6u0xmwc7f" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_run1.png" id="4_hq3og"]
+[ext_resource type="Texture2D" uid="uid://ug3hfbtb45gt" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_run2.png" id="5_orckd"]
+[ext_resource type="Texture2D" uid="uid://bc74hgm36qrk8" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk0.png" id="6_1dqym"]
+[ext_resource type="Texture2D" uid="uid://da1i8oep6cyhr" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk1.png" id="7_6kuvt"]
+[ext_resource type="Texture2D" uid="uid://ncm8ddn5mkrd" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk2.png" id="8_6610h"]
+[ext_resource type="Texture2D" uid="uid://byek3h2kn1btt" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk3.png" id="9_0shic"]
+[ext_resource type="Texture2D" uid="uid://cxqu64xkmnv4y" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk4.png" id="10_mbhnd"]
+[ext_resource type="Texture2D" uid="uid://q4wsdr2cpqiv" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk5.png" id="11_wlm6a"]
+[ext_resource type="Texture2D" uid="uid://ll8cp10iuved" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk6.png" id="12_c0nog"]
+[ext_resource type="Texture2D" uid="uid://dq2aif1b4kswr" path="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_walk7.png" id="13_5s0vb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l1n4"]
+size = Vector2(17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ekbm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b4qc5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hq3og")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hd715")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hq3og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_orckd")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1dqym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6kuvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6610h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0shic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mbhnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wlm6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_c0nog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5s0vb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_yf0e5")
+speed = 100.0
+max_speed = Vector2(100, 1000)
+floor_drag = Vector2(0.95, 1)
+air_drag = Vector2(0.95, 1)
+jump_strength = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1l1n4")
+
+[node name="Display" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_4ekbm")
+animation = &"idle"

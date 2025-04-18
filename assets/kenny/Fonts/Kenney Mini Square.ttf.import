@@ -1,0 +1,41 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://c3xf6kvcoaey0"
+path="res://.godot/imported/Kenney Mini Square.ttf-c081980df21706697d7e9e7e0f1c193d.fontdata"
+
+[deps]
+
+source_file="res://assets/kenny/Fonts/Kenney Mini Square.ttf"
+dest_files=["res://.godot/imported/Kenney Mini Square.ttf-c081980df21706697d7e9e7e0f1c193d.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [49, 51, 50, 48, 52, 53, 54, 55, 56, 57],
+"glyphs": [],
+"name": "Numbers",
+&"size": Vector2i(18, 0),
+&"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

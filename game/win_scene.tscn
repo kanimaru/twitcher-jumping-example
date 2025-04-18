@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ixno20rnia7"]
+
+[ext_resource type="Script" uid="uid://cpg7al1c46fw8" path="res://game/win_scene.gd" id="1_k8wnm"]
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k8wnm")
+
+[node name="Text" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[rainbow]You won![/rainbow]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -14.0
+offset_right = 46.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"

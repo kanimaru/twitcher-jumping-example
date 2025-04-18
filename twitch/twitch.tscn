@@ -1,0 +1,61 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8tkothwl2u25"]
+
+[ext_resource type="Script" uid="uid://dj8t1mt4h8nib" path="res://addons/twitcher/twitch_service.gd" id="1_3i13y"]
+[ext_resource type="Resource" uid="uid://5bpt1ns1ypsb" path="res://twitch/twitch_oauth_setting.tres" id="2_oxajb"]
+[ext_resource type="Resource" uid="uid://3dm6ts8hwlys" path="res://addons/twitcher/auth/preset_game_scopes.tres" id="3_1vs0w"]
+[ext_resource type="Resource" uid="uid://uminre0vudyo" path="res://twitch/default_oauth_token.tres" id="4_v88il"]
+[ext_resource type="Script" uid="uid://iv0mgv0lu8b0" path="res://addons/twitcher/auth/twitch_auth.gd" id="5_gxx0s"]
+[ext_resource type="Script" uid="uid://bf0wi70haua35" path="res://addons/twitcher/lib/oOuch/oauth.gd" id="6_gxx0s"]
+[ext_resource type="Script" uid="uid://cw30cwveway65" path="res://addons/twitcher/generated/twitch_api.gd" id="6_v52uq"]
+[ext_resource type="Script" uid="uid://blnbogtrshw4r" path="res://addons/twitcher/auth/twitch_token_handler.gd" id="7_v52uq"]
+[ext_resource type="Script" uid="uid://blmhj3j00yk45" path="res://addons/twitcher/eventsub/twitch_eventsub.gd" id="7_x4ilr"]
+[ext_resource type="Script" uid="uid://d4lyup0vy1wtu" path="res://addons/twitcher/media/twitch_media_loader.gd" id="8_b81dq"]
+[ext_resource type="Texture2D" uid="uid://g1dbcjksbotw" path="res://addons/twitcher/assets/fallback_texture.tres" id="9_4k6xb"]
+[ext_resource type="Script" uid="uid://ddwa0dm0qhc3s" path="res://addons/twitcher/media/native_image_transformer.gd" id="10_udgoy"]
+
+[sub_resource type="Resource" id="Resource_j5v2v"]
+script = ExtResource("10_udgoy")
+fallback_texture = ExtResource("9_4k6xb")
+metadata/_custom_type_script = "uid://ddwa0dm0qhc3s"
+
+[node name="Twitch" type="Node"]
+script = ExtResource("1_3i13y")
+oauth_setting = ExtResource("2_oxajb")
+scopes = ExtResource("3_1vs0w")
+token = ExtResource("4_v88il")
+
+[node name="TwitchAuth" type="Node" parent="."]
+script = ExtResource("5_gxx0s")
+oauth_setting = ExtResource("2_oxajb")
+token = ExtResource("4_v88il")
+scopes = ExtResource("3_1vs0w")
+metadata/_custom_type_script = "uid://iv0mgv0lu8b0"
+
+[node name="OAuth" type="Node" parent="TwitchAuth" node_paths=PackedStringArray("token_handler")]
+script = ExtResource("6_gxx0s")
+oauth_setting = ExtResource("2_oxajb")
+scopes = ExtResource("3_1vs0w")
+token_handler = NodePath("../TokenHandler")
+
+[node name="TokenHandler" type="Node" parent="TwitchAuth"]
+script = ExtResource("7_v52uq")
+oauth_setting = ExtResource("2_oxajb")
+token = ExtResource("4_v88il")
+
+[node name="TwitchAPI" type="Node" parent="."]
+script = ExtResource("6_v52uq")
+token = ExtResource("4_v88il")
+oauth_setting = ExtResource("2_oxajb")
+metadata/_custom_type_script = "uid://cw30cwveway65"
+
+[node name="TwitchEventsub" type="Node" parent="." node_paths=PackedStringArray("api")]
+script = ExtResource("7_x4ilr")
+api = NodePath("../TwitchAPI")
+scopes = ExtResource("3_1vs0w")
+metadata/_custom_type_script = "uid://blmhj3j00yk45"
+
+[node name="TwitchMediaLoader" type="Node" parent="." node_paths=PackedStringArray("api")]
+script = ExtResource("8_b81dq")
+api = NodePath("../TwitchAPI")
+image_transformer = SubResource("Resource_j5v2v")
+metadata/_custom_type_script = "uid://d4lyup0vy1wtu"

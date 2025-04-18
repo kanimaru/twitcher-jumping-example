@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bhgydm62nxod"
+path="res://.godot/imported/character_femaleAdventurer_kick.png-21bcd9e95c3267d04b9c7055ebec1175.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/kenny/Female adventurer/PNG/Poses/character_femaleAdventurer_kick.png"
+dest_files=["res://.godot/imported/character_femaleAdventurer_kick.png-21bcd9e95c3267d04b9c7055ebec1175.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

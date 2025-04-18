@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bcbtfw7j7woef"]
+
+[ext_resource type="FontFile" uid="uid://o4cl40665vwr" path="res://assets/kenny/Fonts/Kenney Mini Square Mono.ttf" id="1_6qegq"]
+[ext_resource type="FontFile" uid="uid://fbuk1nvhx38l" path="res://assets/kenny/Fonts/Kenney Future.ttf" id="2_hjn8r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju8y4"]
+content_margin_left = 8.0
+content_margin_right = 4.0
+bg_color = Color(0.172833, 0.172833, 0.172832, 1)
+border_width_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjn8r"]
+content_margin_left = 8.0
+content_margin_right = 4.0
+bg_color = Color(0.0687982, 0.0687983, 0.0687982, 1)
+border_width_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qegq"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxFlat_ju8y4")
+Button/styles/normal = SubResource("StyleBoxFlat_hjn8r")
+Control/fonts/font = ExtResource("1_6qegq")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_6qegq")
+RichTextLabel/fonts/normal_font = ExtResource("2_hjn8r")
